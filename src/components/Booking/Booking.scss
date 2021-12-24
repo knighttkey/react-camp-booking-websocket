@@ -1,0 +1,39 @@
+.booking_container {
+  background-color: #959595;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .camp_area {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .each_camp {
+      width: 120px;
+      height: 100px;
+      // border: 1px solid #333;
+      cursor: pointer;
+      transition: 0.5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      border-radius: 5px;
+      margin: 5px;
+      background-color: #e7e4cb;
+      &.selected {
+        background-color: #fae7be;
+        // pointer-events: none;
+      }
+      &:hover {
+        background-color: #e2e2e2;
+      }
+    }
+  }
+}
