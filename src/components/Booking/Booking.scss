@@ -1,7 +1,7 @@
 .booking_container {
   background-color: #959595;
-  width: 600px;
-  height: 300px;
+  width: 640px;
+  height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +13,11 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 10px;
     .each_camp {
-      width: 120px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
       // border: 1px solid #333;
       cursor: pointer;
       transition: 0.5s;
@@ -26,13 +28,30 @@
       user-select: none;
       border-radius: 5px;
       margin: 5px;
+      box-sizing: border-box;
+      padding: 10px;
       background-color: #e7e4cb;
+
       &.selected {
-        background-color: #fae7be;
+        background-color: #ffca56;
         // pointer-events: none;
       }
       &:hover {
         background-color: #e2e2e2;
+      }
+      .camp_type {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin: 0 0 10px 0;
+        &.budget {
+          background-image: url("./../../image/campA.png");
+        }
+        &.fancy {
+          background-image: url("./../../image/campB.png");
+        }
       }
     }
   }

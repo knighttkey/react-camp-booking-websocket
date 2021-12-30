@@ -148,6 +148,7 @@ const Booking = () => {
                 key={campIndex}
                 onClick={() => pickCamp(campItem)}
               >
+                <div className={`camp_type ${campItem.campType==="budget"?"budget":"fancy"}`}></div>
                 <div className="camp_name">{campItem.campName}</div>
                 <div className="camp_capacity">{campItem.campCapacity}人</div>
                 <div className="camp_price">{campItem.campPrice}元</div>
