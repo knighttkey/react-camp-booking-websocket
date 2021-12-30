@@ -18,40 +18,36 @@ const Booking = () => {
   const [campSelectedList, setCampSelectedList] = useState([]);
   const [userId, setUserId] = useState("");
   console.log('campSelectedList', campSelectedList)
-
-
+  
+  
   useEffect(() => {
-    //使用 WebSocket 的網址向 Server 開啟連結
-    let ws = new WebSocket("ws://localhost:3400");
-    console.log(ws);
-    setWsState(ws);
+    let ws = new WebSocket("ws://camp-booking-websocket.herokuapp.com");
+    // let ws = new WebSocket("ws://localhost:5400");
+    console.log('ws', ws)
+      setWsState(ws);
+      ws.onopen = () => {
+        console.log("open connection");
+        //   ws.send("yyyes");
+      //   ws.send(JSON.stringify([{
+      //     campId: "0035",
+      //     campArea: "A1",
+      //     campType: "budget",
+      //     campName: "悠遊生活",
+      //     campCapacity: 4,
+      //     campPrice: 2000,
+      //   }]));
+      };
+  
+      ws.onclose = () => {
+        console.log("close connection");
+      };
+  
+      ws.onmessage = (event) => {
+        console.log("event", event);
+        console.log("event.data", JSON.parse(event.data));
+        setCampSelectedList(JSON.parse(event.data));
+      };
 
-    //開啟後執行的動作，指定一個 function 會在連結 WebSocket 後執行
-    ws.onopen = () => {
-      console.log("open connection");
-      //   ws.send("yyyes");
-    //   ws.send(JSON.stringify([{
-    //     campId: "0035",
-    //     campArea: "A1",
-    //     campType: "budget",
-    //     campName: "悠遊生活",
-    //     campCapacity: 4,
-    //     campPrice: 2000,
-    //   }]));
-    };
-
-    //關閉後執行的動作，指定一個 function 會在連結中斷後執行
-    ws.onclose = () => {
-      console.log("close connection");
-    };
-
-    //接收 Server 發送的訊息
-    ws.onmessage = (event) => {
-      console.log("event", event);
-      console.log("event.data", JSON.parse(event.data));
-
-      setCampSelectedList(JSON.parse(event.data));
-    };
   }, []);
 
 
@@ -149,7 +145,7 @@ const Booking = () => {
                 onClick={() => pickCamp(campItem)}
               >
                 <div className={`camp_type ${campItem.campType==="budget"?"budget":"fancy"}`}></div>
-                <div className="camp_name">{campItem.campName}</div>
+                {/* <div className="camp_name">{campItem.campName}</div> */}
                 <div className="camp_capacity">{campItem.campCapacity}人</div>
                 <div className="camp_price">{campItem.campPrice}元</div>
               </div>
