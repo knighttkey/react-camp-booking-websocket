@@ -21,7 +21,7 @@ const Booking = () => {
   
   
   useEffect(() => {
-    let ws = new WebSocket("ws://camp-booking-websocket.herokuapp.com");
+    let ws = new WebSocket("wss://camp-booking-websocket.herokuapp.com");
     // let ws = new WebSocket("ws://localhost:5400");
     console.log('ws', ws)
       setWsState(ws);
