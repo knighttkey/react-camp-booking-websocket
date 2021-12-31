@@ -66,7 +66,7 @@ const Booking = () => {
 
   let campList = [
     {
-      campId: "0035",
+      campId: "01",
       campArea: "A1",
       campType: "budget",
       campName: "悠遊生活",
@@ -74,7 +74,7 @@ const Booking = () => {
       campPrice: 2000,
     },
     {
-      campId: "0036",
+      campId: "02",
       campArea: "A1",
       campType: "budget",
       campName: "悠遊生活",
@@ -82,7 +82,7 @@ const Booking = () => {
       campPrice: 2000,
     },
     {
-      campId: "0041",
+      campId: "03",
       campArea: "A1",
       campType: "budget",
       campName: "恬靜生活",
@@ -90,7 +90,7 @@ const Booking = () => {
       campPrice: 2000,
     },
     {
-      campId: "0042",
+      campId: "04",
       campArea: "A1",
       campType: "budget",
       campName: "恬靜生活",
@@ -98,32 +98,32 @@ const Booking = () => {
       campPrice: 2000,
     },
     {
-      campId: "0051",
-      campArea: "A1",
+      campId: "01",
+      campArea: "B1",
       campType: "fancy",
       campName: "夏日海洋",
       campCapacity: 6,
       campPrice: 4000,
     },
     {
-      campId: "0052",
-      campArea: "A1",
+      campId: "02",
+      campArea: "B1",
       campType: "fancy",
       campName: "夏日海洋",
       campCapacity: 6,
       campPrice: 4000,
     },
     {
-      campId: "0061",
-      campArea: "A1",
+      campId: "03",
+      campArea: "B1",
       campType: "fancy",
       campName: "魔幻森林",
       campCapacity: 6,
       campPrice: 4000,
     },
     {
-      campId: "0062",
-      campArea: "A1",
+      campId: "04",
+      campArea: "B1",
       campType: "fancy",
       campName: "魔幻森林",
       campCapacity: 6,
@@ -134,7 +134,7 @@ const Booking = () => {
   return (
     <div className={`booking_container`}>
       <Provider value={contextValue}>
-        <div className="camp_area">
+        <div className="camp_section">
           {campList.map((campItem, campIndex) => {
             return (
               <div
@@ -144,6 +144,8 @@ const Booking = () => {
                 key={campIndex}
                 onClick={() => pickCamp(campItem)}
               >
+                <div className="camp_area">{campItem.campArea}</div>
+                <div className="camp_id">{campItem.campId}</div>
                 <div className={`camp_type ${campItem.campType==="budget"?"budget":"fancy"}`}></div>
                 {/* <div className="camp_name">{campItem.campName}</div> */}
                 <div className="camp_capacity">{campItem.campCapacity}人</div>
